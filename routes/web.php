@@ -16,6 +16,16 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('admin', function() 
+{
+    return "hai Admin";
+})->middleware('role:admin'); 
+
+Route::get('user', function() 
+{
+    return "hai User";
+})->middleware('role:user'); 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
